@@ -131,9 +131,10 @@ async function main(isGuest = false) {
 
     axios.get('/marker/all')
         .then((response) => {
-            for (let marker of response.data) {
-                showMarker(marker.x, marker.y, marker.title, marker.id)
-            }
+            console.log(response.data)
+            // for (let marker of response.data) {
+            //     showMarker(marker.x, marker.y, marker.title, marker.id)
+            // }
         })
 
     const clickCallback = () => {

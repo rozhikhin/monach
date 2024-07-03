@@ -8,8 +8,9 @@ use mysql_xdevapi\Exception;
 
 class MarkerController extends Controller
 {
-    public function all(): \Illuminate\Database\Eloquent\Collection
+    public function all()
     {
+        return 555;
         return Marker::all();
     }
 
