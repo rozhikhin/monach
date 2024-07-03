@@ -30,8 +30,9 @@
             </div>
         </div>
         <script type="module">
-            import { main } from "{{ Vite::asset('resources/js/map.js') }}"
-            main();
+            {{--import { main } from "{{ Vite::asset('resources/js/map.js') }}"--}}
+            {{--main();--}}
+            mmm()
         </script>
     </body>
 </html>

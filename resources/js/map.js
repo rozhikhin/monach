@@ -107,7 +107,7 @@ function clearAll() {
 }
 
 
-export async function main(isGuest = false) {
+async function main(isGuest = false) {
     // if (isGuest) return;
 
     await ymaps3.ready;
@@ -189,6 +189,8 @@ export async function main(isGuest = false) {
     });
     map.addChild(mapListener);
 }
+
+window.mmm = main;
 
 
 
