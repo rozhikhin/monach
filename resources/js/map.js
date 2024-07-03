@@ -129,7 +129,7 @@ async function main(isGuest = false) {
     );
 
 
-    axios.get('http://localhost:80/marker/all')
+    axios.get('/')
         .then((response) => {
             console.log(response.data)
             // for (let marker of response.data) {
