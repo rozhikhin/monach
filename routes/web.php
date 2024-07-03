@@ -26,11 +26,7 @@ Route::get('/dashboard', function () {
 Route::post('/marker/store', [MarkerController::class, 'store'])->name('marker.store');
 Route::post('/marker/update/{id}', [MarkerController::class, 'update'])->name('marker.update');
 Route::post('/marker/destroy/{id}', [MarkerController::class, 'destroy'])->name('marker.destroy');
-//Route::get('/marker/all', [MarkerController::class, 'all'])->name('marker.all');
-
-Route::get('/marker/all', function () {
-    return 787878;
-});
+Route::get('/marker/all', [MarkerController::class, 'all'])->name('marker.all');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
