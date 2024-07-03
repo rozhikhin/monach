@@ -65,7 +65,7 @@ async function showMarker(x, y, title, id) {
     markerElement.dataset.id = id;
     const mrk = new YMapMarker({
         coordinates: [x, y],
-        draggable: true,
+        draggable: !window.isMapGuest,
     }, markerElement)
     // markerElement.onclick = (object, event) => {
     //     console.log(mrk)
