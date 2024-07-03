@@ -1,0 +1,59 @@
+version: '3'
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    image: php:8.2-fpm
+    container_name: monarch_php
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www/
+      - ./docker/php/php.ini:/usr/local/etc/php/conf.d/local.ini
+
+  webserver:
+    image: nginx:alpine
+    container_name: lara_nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+
+  redis:
+    container_name: monarch_redis
+    image:   redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+    environment:
+      - REDIS_PASSWORD=1
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=16
+    volumes:
+      - ./docker/redis/data:/data/redis
+      - ./docker/redis/redis.conf:/usr/local/etc/redis/redis.conf
+
+  postgres:
+    container_name: monarch_postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: monarch
+      POSTGRES_PASSWORD: 1
+      POSTGRES_DB: monarch
+      PGDATA: /data/postgres
+    volumes:
+      - ./docker/postgres/data:/data/postgres
+    ports:
+      - "5433:5432"
+    restart: unless-stopped
+
+
