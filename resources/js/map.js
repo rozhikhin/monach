@@ -107,8 +107,10 @@ function clearAll() {
 }
 
 
+window.isMapGuest = true;
+
 async function main(isGuest = false) {
-    // if (isGuest) return;
+     window.isMapGuest = isGuest;
 
     await ymaps3.ready;
     const {YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker, YMapListener} = ymaps3;
@@ -185,7 +187,7 @@ async function main(isGuest = false) {
     const mapListener = new YMapListener({
         layerId: "any",
         onClick: clickCallback,
-        onContextMenu: onContextMenuHandler,
+        onContextMenu: window.isMapGuest ? null : onContextMenuHandler,
     });
     map.addChild(mapListener);
 }

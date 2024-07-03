@@ -29,10 +29,15 @@
                 </div>
             </div>
         </div>
-        <script type="module">
-            {{--import { main } from "{{ Vite::asset('resources/js/map.js') }}"--}}
-            {{--main();--}}
-            mmm()
-        </script>
+        @auth
+            <script type="module">
+                mmm()
+            </script>
+        @else
+            <script type="module">
+                mmm(true)
+            </script>
+        @endauth
+
     </body>
 </html>
