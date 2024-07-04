@@ -3,12 +3,13 @@
 @tailwind utilities;
 
 #map {
-    padding-top: 100px;
+    /*position: absolute;*/
     width: 100%;
     height: 800px;
-    min-height: 100vh;
+    min-height: 90vh;
     background: #FFFFFF;
     border-radius: 15px;
+    z-index: 10;
 }
 
 .icon-marker {
@@ -40,3 +41,47 @@
     background-color: #ffffff;
     padding: 5px;
 }
+.doc-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.doc {
+    width: 70%;
+    background-color: #e2e8f0;
+    padding: 10px;
+}
+
+.doc ul, ol {
+    margin: 16px;
+    padding-left: 40px;
+    list-style: none;
+}
+
+.doc ol {
+    list-style-type: decimal;
+}
+
+.doc ul li {
+    margin-top: 20px;
+}
+
+.doc ol li {
+    margin-top: 0;
+}
+
+.doc h1 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.doc h2 {
+    font-size: 18px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.doc-section {
+    margin: 25px;
+}
+
